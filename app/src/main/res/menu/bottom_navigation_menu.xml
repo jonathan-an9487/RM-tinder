@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="Chats"
+        android:icon="@drawable/chaticon"
+        android:id="@+id/menu_chats">
+    </item>
+    <item
+        android:title="swipe Card"
+        android:icon="@drawable/card"
+        android:id="@+id/menu_card">
+    </item>
+    <item
+        android:title="Profile"
+        android:icon="@drawable/userhead"
+        android:id="@+id/menu_profile">
+    </item>
+</menu>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".newloginregist.RegistFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="100dp">
+    </com.google.android.material.divider.MaterialDivider>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="15dp"
+        android:textSize="20dp"
+        android:text="Email"
+        android:textColor="@color/white"
+        android:textStyle="bold">
+    </TextView>
+    <EditText
+        android:id="@+id/editTextregistaccount"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="200dp"
+        android:textColorHint="@color/white">
+    </EditText>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="280dp"
+        android:layout_marginLeft="15dp"
+        android:textSize="20dp"
+        android:text="Password"
+        android:textColor="@color/white"
+        android:textStyle="bold">
+    </TextView>
+    <EditText
+        android:id="@+id/editTextregistPassword"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="330dp"
+        android:ems="10"
+        android:inputType="numberPassword"
+        android:textColorHint="@color/white">
+    </EditText>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="15dp"
+        android:textSize="20dp"
+        android:text="Comfirm Password"
+        android:textColor="@color/white"
+        android:textStyle="bold">
+    </TextView>
+    <EditText
+        android:id="@+id/editTextcheckPassword"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="450dp"
+        android:ems="10"
+        android:inputType="numberPassword"
+        android:textColorHint="@color/white">
+    </EditText>
+    <Button
+        android:id="@+id/registbtn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="550dp"
+        android:backgroundTint="#6D121111"
+        android:textColor="@color/white"
+        android:text="註冊"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:onClick="onlogintest">
+    </Button>
+
+</FrameLayout>

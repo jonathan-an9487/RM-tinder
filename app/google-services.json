@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "170405209031",
+    "project_id": "android-result",
+    "storage_bucket": "android-result.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:170405209031:android:03c9450b42a2fa3a6cefe2",
+        "android_client_info": {
+          "package_name": "com.example.swipecard"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlg5HAn4dDFv5uUfE06BMfzrCkQHpR13g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

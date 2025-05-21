@@ -6,7 +6,7 @@
     tools:context=".swipeCard.SwipeCardFragment"
     android:background="#272727">
     <com.yuyakaido.android.cardstackview.CardStackView
-        android:id="@+id/card_stack_view1"
+        android:id="@+id/card_stack_view"
         style ="@style/roundimageview"
         android:layout_width="406dp"
         android:layout_height="445dp"

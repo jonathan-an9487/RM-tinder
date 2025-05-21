@@ -22,7 +22,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.swipecard.R;
-import com.example.swipecard.chats.chatActivity;
+import com.example.swipecard.Front.FrontActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -80,7 +80,7 @@ public class ProfileSetupActivity extends AppCompatActivity {
         mbackprofileFragment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ProfileSetupActivity.this, chatActivity.class);
+                Intent intent = new Intent(ProfileSetupActivity.this, FrontActivity.class);
                 startActivity(intent);
             }
         });
@@ -247,7 +247,7 @@ public class ProfileSetupActivity extends AppCompatActivity {
                 .set(user)
                 .addOnSuccessListener(aVoid -> {
                     Toast.makeText(this, "個人資料已保存", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(this, chatActivity.class));
+                    startActivity(new Intent(this, FrontActivity.class));
                     finish();
                 })
                 .addOnFailureListener(e -> {

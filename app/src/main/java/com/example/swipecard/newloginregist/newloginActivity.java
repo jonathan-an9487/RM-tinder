@@ -50,13 +50,16 @@ public class newloginActivity extends AppCompatActivity {
                 }
             }
             @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-            }
+            public void onTabUnselected(TabLayout.Tab tab) {}
             @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-            }
+            public void onTabReselected(TabLayout.Tab tab) {}
         });
 
-
+    }
+    public void switchTab(int position){
+        TabLayout.Tab tab = tabNavigation.getTabAt(position);
+        if (tab != null) {
+            tab.select(); // 觸發 Tab 選中
+        }
     }
 }

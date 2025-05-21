@@ -8,8 +8,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
@@ -21,11 +19,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.swipecard.R;
-import com.example.swipecard.chats.chatActivity;
-import com.google.android.gms.tasks.OnCompleteListener;
+import com.example.swipecard.Front.FrontActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -60,7 +56,6 @@ public class LoginFragment extends Fragment {
             }
         };
         rememberme = view.findViewById(R.id.rememberactpsw);
-
         meditTextaccount = view.findViewById(R.id.edittextaccount);
         meditTextpassword = view.findViewById(R.id.editTextPassword);
 
@@ -93,7 +88,7 @@ public class LoginFragment extends Fragment {
                     public void onSuccess(AuthResult authResult) {
                                 Toast.makeText(getContext(), "登入成功！", Toast.LENGTH_LONG).show();
                                 saveCredentials(act, psw);
-                                startActivity(new Intent(getActivity(), chatActivity.class));
+                                startActivity(new Intent(getActivity(), FrontActivity.class));
                                 requireActivity().finish();
                     }
                 }).addOnFailureListener(new OnFailureListener() {

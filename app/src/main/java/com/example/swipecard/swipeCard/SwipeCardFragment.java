@@ -176,6 +176,7 @@ public class SwipeCardFragment extends Fragment implements CardStackListener{
                 .addOnFailureListener(e -> {
                     Log.e("USER_LOAD", "加载用户失败", e);
                 });
+
     }
     @Override
     public void onCardSwiped(Direction direction) {

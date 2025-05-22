@@ -1,4 +1,4 @@
-package com.example.swipecard.chats;
+package com.example.swipecard.Front;
 
 import android.os.Bundle;
 
@@ -10,9 +10,9 @@ import android.view.ViewGroup;
 
 import com.example.swipecard.R;
 
-public class ChatFragment extends Fragment {
+public class FrontFragment extends Fragment {
 
-    public ChatFragment() {
+    public FrontFragment() {
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

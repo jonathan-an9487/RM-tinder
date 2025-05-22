@@ -79,6 +79,11 @@ public class RegistFragment extends Fragment {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                             Toast.makeText(getContext(),"恭喜成功創建帳號！",Toast.LENGTH_LONG).show();
                             getParentFragmentManager().beginTransaction().replace(R.id.viewToSee,new LoginFragment()).addToBackStack(null).commit();
+
+                            //註冊完後 上方tabNavi會跳轉到Login
+//                            if (getActivity() instanceof newloginActivity) {
+                            ((newloginActivity) getActivity()).switchTab(0);
+
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -87,6 +92,7 @@ public class RegistFragment extends Fragment {
                     }
                 });
             }
+
         });
         return view;
     }

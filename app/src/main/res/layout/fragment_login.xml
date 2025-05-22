@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".newloginregist.LoginFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -27,7 +28,8 @@
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginTop="200dp"
-        android:textColorHint="@color/white">
+        android:textColorHint="@color/white"
+        android:textColor="@color/white">
     </EditText>
 
 
@@ -48,7 +50,8 @@
         android:layout_marginTop="330dp"
         android:ems="10"
         android:inputType="numberPassword"
-        android:textColorHint="@color/white">
+        android:textColorHint="@color/white"
+        android:textColor="@color/white">
 
     </EditText>
     <Button
@@ -72,6 +75,7 @@
         android:layout_marginTop="400dp"
         android:textColor="@color/white"
         android:text="Remember account &amp; password"
+        app:buttonTint="#272727"
         >
 
     </CheckBox>

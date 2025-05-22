@@ -1,6 +1,5 @@
-package com.example.swipecard.chats;
+package com.example.swipecard.Front;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ImageButton;
@@ -12,17 +11,16 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.swipecard.MainActivity;
 import com.example.swipecard.profile.ProfileFragment;
 import com.example.swipecard.R;
 import com.example.swipecard.swipeCard.SwipeCardFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-public class chatActivity extends AppCompatActivity {
+public class FrontActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationMenuView;
     ImageButton imageButton;
-    ChatFragment chatFragment;
+    FrontFragment chatFragment;
     ProfileFragment profileFragment;
     SwipeCardFragment swipecardFragment;
 
@@ -36,7 +34,7 @@ public class chatActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        chatFragment = new ChatFragment();
+        chatFragment = new FrontFragment();
         profileFragment = new ProfileFragment();
         swipecardFragment = new SwipeCardFragment();
 

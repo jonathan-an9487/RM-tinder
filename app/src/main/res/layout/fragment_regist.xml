@@ -23,9 +23,10 @@
     </TextView>
     <EditText
         android:id="@+id/editTextregistaccount"
-        android:layout_width="match_parent"
+        android:layout_width="360dp"
         android:layout_height="55dp"
         android:layout_marginTop="200dp"
+        android:layout_marginLeft="20dp"
         android:textColorHint="@color/white">
     </EditText>
 
@@ -42,9 +43,10 @@
     </TextView>
     <EditText
         android:id="@+id/editTextregistPassword"
-        android:layout_width="match_parent"
+        android:layout_width="360dp"
         android:layout_height="50dp"
         android:layout_marginTop="330dp"
+        android:layout_marginLeft="20dp"
         android:ems="10"
         android:inputType="numberPassword"
         android:textColorHint="@color/white">

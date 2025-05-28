@@ -1,81 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Front.FrontActivity">
+    android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/main_toolbar"
+    <!-- Header -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#272727"
-        android:padding="15dp">
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="#272727">
 
         <ImageView
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_marginStart="-5dp"
-            android:background="@drawable/tindericonnbg">
-
+            android:id="@+id/button_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/tindericonnbg"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:layout_marginEnd="10dp" >
         </ImageView>
+
         <TextView
-            android:id="@+id/title"
+            android:id="@+id/text_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="35dp"
-            android:text="RM-tinder"
-            android:textColor="#FF5151"
-            android:textSize="27sp"
-            android:textStyle="bold">
+            android:text="Chat"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:layout_gravity="center_vertical" />
 
-        </TextView>
+    </LinearLayout>
 
-<!--        <ImageButton-->
-<!--            android:id="@+id/main_search_buttom"-->
-<!--            android:layout_width="32dp"-->
-<!--            android:layout_height="32dp"-->
-<!--            android:layout_alignParentEnd="true"-->
-<!--            android:layout_centerVertical="true"-->
-<!--            android:layout_marginEnd="10dp"-->
-<!--            android:background="?attr/selectableItemBackgroundBorderless"-->
-<!--            android:scaleType="centerCrop"-->
-<!--            android:src="@drawable/magnifying"-->
-<!--            app:tint="@color/white">-->
-
-<!--        </ImageButton>-->
-    </RelativeLayout>
-
-    <FrameLayout
-        android:id="@+id/main_frame_layout"
+    <!-- Messages -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_messages"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/divider"
-        android:layout_below="@id/main_toolbar"
-        android:layout_marginTop="-1dp"
-        android:layout_marginBottom="1dp">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp" />
 
-    </FrameLayout>
-
-    <com.google.android.material.divider.MaterialDivider
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_above="@id/bottom_navigation"
-        android:id="@+id/divider">
-
-    </com.google.android.material.divider.MaterialDivider>
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+    <!-- Input -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:backgroundTint="@color/black"
-        android:id="@+id/bottom_navigation"
-        app:menu="@menu/bottom_navigation_menu">
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="#272727"
+        android:elevation="4dp">
 
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
+        <EditText
+            android:id="@+id/edit_text_message"
+            android:layout_width="2dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="輸入訊息..."
+            android:textColorHint="#999999"
+            android:padding="15dp"
+            android:background="@drawable/round"
+            android:backgroundTint="#90000000"
+            android:layout_marginEnd="8dp">
 
-</RelativeLayout>
+        </EditText>
+
+        <ImageView
+            android:id="@+id/button_send"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:padding="20dp"
+            android:background="@drawable/sendbg">
+        </ImageView>
+
+    </LinearLayout>
+
+</LinearLayout>

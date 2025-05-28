@@ -10,9 +10,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
 
 import com.example.swipecard.profile.ProfileFragment;
 import com.example.swipecard.R;
+import com.example.swipecard.roomatelist.roomatelist;
 import com.example.swipecard.swipeCard.SwipeCardFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -28,7 +30,7 @@ public class FrontActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_chat);
+        setContentView(R.layout.activity_front);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -37,6 +39,10 @@ public class FrontActivity extends AppCompatActivity {
         chatFragment = new FrontFragment();
         profileFragment = new ProfileFragment();
         swipecardFragment = new SwipeCardFragment();
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag("roomatelist_tag");
+        if (fragment instanceof roomatelist) {
+            ((roomatelist) fragment).refreshChatRooms();
+        }
 
 
 

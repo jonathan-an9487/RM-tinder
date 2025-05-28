@@ -51,6 +51,9 @@ dependencies {
     implementation ("com.google.firebase:firebase-auth:21.0.1")
     implementation ("com.squareup.picasso:picasso:2.8")
     implementation ("com.google.firebase:firebase-storage:20.0.0")
+    implementation ("com.firebaseui:firebase-ui-firestore:9.0.0")
+    implementation ("com.jakewharton.threetenabp:threetenabp:1.3.1")
+
 
 
 }   

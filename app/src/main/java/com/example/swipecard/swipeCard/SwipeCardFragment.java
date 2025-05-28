@@ -361,22 +361,45 @@ public class SwipeCardFragment extends Fragment implements CardStackListener{
                 });
     }
     private void showMatchDialog(String matchedUserId, String chatId) {
+        // 添加 chatId 驗證
+        if (chatId == null || chatId.isEmpty()) {
+            Log.e("MatchDialog", "無效的 chatId: " + chatId);
+            Toast.makeText(requireContext(), "聊天室創建失敗", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Log.d("MatchDialog", "顯示配對對話框, userId: " + matchedUserId + ", chatId: " + chatId);
+
         db.collection("users").document(matchedUserId)
                 .get()
                 .addOnSuccessListener(documentSnapshot -> {
-                    User matchedUser = documentSnapshot.toObject(User.class);
-                    if (matchedUser != null && isAdded()) {
-                        new AlertDialog.Builder(requireContext())
-                                .setTitle("配對成功！")
-                                .setMessage("你和 " + matchedUser.getName() + " 已配對")
-                                .setPositiveButton("開始聊天", (dialog, which) -> {
-                                    Intent intent = new Intent(getActivity(), ChatActivity.class);
-                                    intent.putExtra("CHAT_ID", chatId);
-                                    startActivity(intent);
-                                })
-                                .setNegativeButton("關閉", null)
-                                .show();
+                    if (documentSnapshot.exists() && isAdded()) {
+                        User matchedUser = documentSnapshot.toObject(User.class);
+                        if (matchedUser != null) {
+                            new AlertDialog.Builder(requireContext())
+                                    .setTitle("配對成功！")
+                                    .setMessage("你和 " + matchedUser.getName() + " 已配對")
+                                    .setPositiveButton("開始聊天", (dialog, which) -> {
+                                        // 再次驗證 chatId
+                                        if (chatId == null || chatId.isEmpty()) {
+                                            Toast.makeText(requireContext(), "聊天室ID錯誤", Toast.LENGTH_SHORT).show();
+                                            return;
+                                        }
+
+                                        Log.d("MatchDialog", "啟動聊天室: " + chatId);
+
+                                        Intent intent = new Intent(requireActivity(), ChatActivity.class);
+                                        intent.putExtra("CHAT_ID", chatId);
+                                        intent.putExtra("OTHER_USER_NAME", matchedUser.getName());
+                                        startActivity(intent);
+                                    })
+                                    .setNegativeButton("關閉", null)
+                                    .show();
+                        }
                     }
+                })
+                .addOnFailureListener(e -> {
+                    Log.e("MatchDialog", "獲取用戶數據失敗", e);
                 });
     }
 

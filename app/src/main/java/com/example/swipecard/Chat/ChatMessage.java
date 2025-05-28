@@ -25,7 +25,7 @@ public class ChatMessage {
     public void setSenderId(String senderId) { this.senderId = senderId; }
 
     public String getContent() { return content; }
-    public void setText(String text) { this.content = content; }
+    public void setContent(String content) { this.content = content; }
 
     public Timestamp getTimestamp() { return timestamp; }
     public void setTimestamp(Timestamp timestamp) { this.timestamp = timestamp; }

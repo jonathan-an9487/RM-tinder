@@ -24,6 +24,7 @@ import androidx.core.content.ContextCompat;
 import com.example.swipecard.R;
 import com.example.swipecard.Front.FrontActivity;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageException;
@@ -54,6 +55,7 @@ public class ProfileSetupActivity extends AppCompatActivity {
     private StorageReference storageRef;
 
     Button mbackprofileFragment;
+    String currentUserId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,10 +64,12 @@ public class ProfileSetupActivity extends AppCompatActivity {
 
         // 初始化 Firebase
         auth = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         if (auth.getCurrentUser() == null) {
             finish();
             return;
         }
+        currentUserId = firebaseUser.getUid();
 
         db = FirebaseFirestore.getInstance();
         storageRef = FirebaseStorage.getInstance().getReference("profile_images");
@@ -242,8 +246,9 @@ public class ProfileSetupActivity extends AppCompatActivity {
         user.put("name", name);
         user.put("bio", bio);
         user.put("profileImageUrl", imageUrl);
+        user.put("likedUsers", new HashMap<>()); // 初始化空映射
 
-        db.collection("users").document(userId)
+        db.collection("users").document(currentUserId)
                 .set(user)
                 .addOnSuccessListener(aVoid -> {
                     Toast.makeText(this, "個人資料已保存", Toast.LENGTH_SHORT).show();

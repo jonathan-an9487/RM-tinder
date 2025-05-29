@@ -53,6 +53,23 @@ dependencies {
     implementation ("com.google.firebase:firebase-storage:20.0.0")
     implementation ("com.firebaseui:firebase-ui-firestore:9.0.0")
     implementation ("com.jakewharton.threetenabp:threetenabp:1.3.1")
+    // Firebase BOM - 管理所有 Firebase 庫版本
+    // Firebase 核心庫
+    implementation ("com.google.firebase:firebase-firestore")
+    implementation ("com.google.firebase:firebase-auth")
+
+    // FirebaseUI for Firestore（這是你需要的關鍵依賴）
+    implementation ("com.firebaseui:firebase-ui-firestore:8.0.2")
+
+    // RecyclerView（如果還沒有的話）
+    implementation ("androidx.recyclerview:recyclerview:1.3.2")
+
+    // 其他可能需要的依賴
+    implementation ("androidx.appcompat:appcompat:1.6.1")
+    implementation ("com.google.android.material:material:1.11.0")
+    implementation ("androidx.cardview:cardview:1.0.0")
+    implementation ("com.github.bumptech.glide:glide:4.14.2")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.14.2")
 
 
 

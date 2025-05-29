@@ -20,8 +20,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class FrontActivity extends AppCompatActivity {
+
     BottomNavigationView bottomNavigationMenuView;
     ImageButton imageButton;
+
     FrontFragment chatFragment;
     ProfileFragment profileFragment;
     SwipeCardFragment swipecardFragment;
@@ -31,37 +33,59 @@ public class FrontActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_front);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        // 初始化Fragment
         chatFragment = new FrontFragment();
         profileFragment = new ProfileFragment();
         swipecardFragment = new SwipeCardFragment();
-        Fragment fragment = getSupportFragmentManager().findFragmentByTag("roomatelist_tag");
-        if (fragment instanceof roomatelist) {
-            ((roomatelist) fragment).refreshChatRooms();
-        }
-
-
 
         bottomNavigationMenuView = findViewById(R.id.bottom_navigation);
         bottomNavigationMenuView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if(item.getItemId()==R.id.menu_chats){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout,chatFragment).commit();
+                if (item.getItemId() == R.id.menu_chats) {
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.main_frame_layout, chatFragment)
+                            .commit();
+                    // 刷新聊天室列表
+                    if (chatFragment != null) {
+                        chatFragment.refreshChatRooms();
+                    }
                 }
-                if(item.getItemId()==R.id.menu_profile){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout,profileFragment).commit();
+
+                if (item.getItemId() == R.id.menu_profile) {
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.main_frame_layout, profileFragment)
+                            .commit();
                 }
-                if(item.getItemId()==R.id.menu_card){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout, swipecardFragment).commit();
+
+                if (item.getItemId() == R.id.menu_card) {
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.main_frame_layout, swipecardFragment)
+                            .commit();
                 }
+
                 return true;
             }
         });
+
+        // 默认显示卡片页面
         bottomNavigationMenuView.setSelectedItemId(R.id.menu_card);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // 如果当前显示的是聊天页面，刷新聊天室列表
+        Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.main_frame_layout);
+        if (currentFragment instanceof FrontFragment) {
+            ((FrontFragment) currentFragment).refreshChatRooms();
+        }
     }
 }
